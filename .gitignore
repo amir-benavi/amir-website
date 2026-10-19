@@ -25,3 +25,9 @@ dist-ssr
 
 # Cloudflare
 .wrangler
+
+# reference
+reference/
+
+# Claude Code local instructions
+CLAUDE.local.md
