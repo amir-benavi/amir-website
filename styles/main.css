@@ -149,6 +149,7 @@ h1 {
     align-items: center;
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
   }
 
   .site-nav.is-open {
