@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About · Amir Ben Avi</title>
+    <meta name="description" content="About Amir Ben Avi: studies, hobbies and interests." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet" />
+    <link href="/styles/reset.css" rel="stylesheet" />
+    <link href="/styles/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="site-title">Amir</a>
+      <nav class="site-nav" id="site-nav">
+        <button type="button" class="menu-close-button" aria-label="Close menu">
+          <img src="/icons/close.svg" alt="" />
+        </button>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="iceland.html">Iceland</a></li>
+        </ul>
+      </nav>
+      <button
+        type="button"
+        class="menu-open-button"
+        aria-label="Open menu"
+        aria-controls="site-nav"
+        aria-expanded="false"
+      >
+        <img src="/icons/menu.svg" alt="" />
+      </button>
+    </header>
+    <main class="main-wide">
+      <p class="eyebrow">About me</p>
+      <h1>A bit more about me</h1>
+      <p class="lead">
+        Beyond computer science, I love exploring new places, discovering new music
+        and a good game of chess.
+      </p>
+
+      <h2>Who I am</h2>
+      <p>
+        I'm a third-year Computer Science student at the Hebrew University of
+        Jerusalem. This year I'm also learning web development in Product Jam, where
+        developers and designers work together to build products for social-good
+        organizations.
+      </p>
+
+      <h2>Hobbies</h2>
+      <ul class="card-grid">
+        <li class="card">
+          <span class="card-icon" aria-hidden="true">📷</span>
+          <h3>Travel &amp; photography</h3>
+          <p>
+            I love exploring new places with a camera, and I've been to many
+            countries. Some of my favorites are Japan, South Korea, Singapore, China
+            and Iceland, where I travelled in late summer 2026, chasing waterfalls,
+            black-sand beaches and glaciers.
+          </p>
+          <p class="card-action"><a href="iceland.html">See my Iceland photos →</a></p>
+        </li>
+        <li class="card">
+          <span class="card-icon" aria-hidden="true">🎵</span>
+          <h3>Music</h3>
+          <p>
+            I love listening to music, and I'm always discovering new artists. A few I
+            keep coming back to: Shlomo Artzi, Aviv Geffen, Evyatar Banai, The Smiths,
+            Bruce Springsteen and Radiohead.
+          </p>
+          <p class="card-action">
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              class="button button-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              My favorite song
+            </a>
+          </p>
+        </li>
+        <li class="card">
+          <span class="card-icon" aria-hidden="true">♟️</span>
+          <h3>Chess</h3>
+          <p>
+            I also love playing chess. With white I like the London System, and with
+            black my favorite is the Taimanov Sicilian.
+          </p>
+        </li>
+      </ul>
+
+      <h2>Education</h2>
+      <p>
+        <strong>B.Sc. in Computer Science</strong><br />
+        The Hebrew University of Jerusalem
+      </p>
+    </main>
+    <footer class="site-footer">
+      <p>
+        © 2026 Amir Ben Avi · <a href="elements.html">Style guide</a> ·
+        Built for <a href="https://github.com/product-jam-2027/course/">Product Jam</a>
+      </p>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

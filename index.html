@@ -1,51 +1,80 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>אתר אינטרנט</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>Amir Ben Avi</title>
+    <meta name="description" content="Amir Ben Avi, Computer Science student at the Hebrew University of Jerusalem." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet" />
     <link href="/styles/reset.css" rel="stylesheet" />
     <link href="/styles/main.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <a href="index.html" class="site-title">אתר אינטרנט</a>
+      <a href="index.html" class="site-title">Amir</a>
       <nav class="site-nav" id="site-nav">
-        <button type="button" class="menu-close-button" aria-label="סגירת תפריט">
+        <button type="button" class="menu-close-button" aria-label="Close menu">
           <img src="/icons/close.svg" alt="" />
         </button>
         <ul class="nav-list">
-          <li><a href="index.html">דף הבית</a></li>
-          <li><a href="elements.html">אלמנטים</a></li>
-          <li><a href="https://github.com/product-jam-2027/course/">הקורס</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="iceland.html">Iceland</a></li>
         </ul>
       </nav>
       <button
         type="button"
         class="menu-open-button"
-        aria-label="פתיחת תפריט"
+        aria-label="Open menu"
         aria-controls="site-nav"
         aria-expanded="false"
       >
         <img src="/icons/menu.svg" alt="" />
       </button>
     </header>
-    <main>
-      <h1>ברוכים הבאים לאתר האינטרנט שלי</h1>
-      <p>האינטרנט (ב<a href="https://he.wikipedia.org/wiki/%D7%A2%D7%91%D7%A8%D7%99%D7%AA">עברית</a>: מִרְשֶׁתֶת) הוא <a href="https://he.wikipedia.org/wiki/%D7%A8%D7%A9%D7%AA_%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA">רשת תקשורת נתונים</a> בהיקף כמעט כלל־עולמי שנוצרה כתוצאה מחיבורים רבים בין <a href="https://he.wikipedia.org/wiki/%D7%A8%D7%A9%D7%AA_%D7%9E%D7%97%D7%A9%D7%91%D7%99%D7%9D">רשתות מחשבים</a> שאפשרו תקשורת בין מחשבים רבים ברשתות רבות.</p>
-      <p>התשתית הרעיונית והמחקרית של האינטרנט נמצאת בתחילת שנות ה-60 במסגרת מחקרים של <a href="https://he.wikipedia.org/wiki/%D7%94%D7%A1%D7%95%D7%9B%D7%A0%D7%95%D7%AA_%D7%94%D7%A6%D7%91%D7%90%D7%99%D7%AA_%D7%9C%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%D7%9D_%D7%9E%D7%97%D7%A7%D7%A8%D7%99%D7%99%D7%9D_%D7%9E%D7%AA%D7%A7%D7%93%D7%9E%D7%99%D7%9D">הסוכנות הצבאית לפרויקטים מחקריים מתקדמים</a> של <a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A8%D7%93_%D7%94%D7%94%D7%92%D7%A0%D7%94_%D7%94%D7%90%D7%9E%D7%A8%D7%99%D7%A7%D7%90%D7%99">משרד ההגנה האמריקאי</a> (<a href="https://he.wikipedia.org/wiki/ARPA">ARPA</a>). תחילת פעילותו של האינטרנט, כלומר הרשת המבצעית הראשונה (<a href="https://he.wikipedia.org/wiki/ARPANET">ARPANET</a>), החלה בסוף שנות ה-60, כאשר בשנת <a href="https://he.wikipedia.org/wiki/1969">1969</a> נשלחה ההודעה הראשונה בין שני מחשבים מחוברים. היקף רשת האינטרנט, כמות המידע העצומה השמורה בשרתים והפעילות הרבה שמבוצעת באמצעות האינטרנט הפכו את האינטרנט לגורם רב משמעות בהתפתחות הכלכלית, החברתית והתרבותית.</p>
-      <form class="hello-form">
-        <label for="name">איך קוראים לך?</label>
-        <input type="text" id="name" name="name" class="text-input" placeholder="שם פרטי" />
-        <button type="submit" class="button">בבקשה ללחוץ על הכפתור</button>
-      </form>
+    <main class="main-wide">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Computer Science student</p>
+          <h1>Hi, I'm Amir.</h1>
+          <p class="lead">
+            I'm a third-year Computer Science student at the Hebrew University of
+            Jerusalem.
+          </p>
+          <p>
+            This year I'm learning web development in Product Jam, a course where
+            developers and designers work together to build real products for
+            social-good organizations. When I'm not studying, you'll usually find me
+            travelling, taking photos, listening to music or playing chess.
+          </p>
+
+          <div class="button-row">
+            <a href="about.html" class="button">More about me</a>
+            <a href="iceland.html" class="button button-secondary">See my Iceland photos</a>
+          </div>
+
+          <ul class="contact-links">
+            <li>
+              <span>Email</span>
+              <a href="mailto:amir.benavi@mail.huji.ac.il">amir.benavi@mail.huji.ac.il</a>
+            </li>
+            <li>
+              <span>GitHub</span>
+              <a href="https://github.com/amir-benavi">amir-benavi</a>
+            </li>
+          </ul>
+        </div>
+        <img src="/images/profile.jpg" alt="Portrait of Amir Ben Avi" class="profile-photo" />
+      </section>
     </main>
     <footer class="site-footer">
-      <p>Product Jam 2027</p>
+      <p>
+        © 2026 Amir Ben Avi · <a href="elements.html">Style guide</a> ·
+        Built for <a href="https://github.com/product-jam-2027/course/">Product Jam</a>
+      </p>
     </footer>
 
     <script type="module" src="/main.js"></script>

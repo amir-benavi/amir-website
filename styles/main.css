@@ -1,62 +1,128 @@
-/* Design tokens */
+/* ==========================================================================
+   Design tokens (Glacier palette)
+   ========================================================================== */
 :root {
-  --color-primary: #4777b6;
-  --color-text: #333333;
-  --color-text-muted: #adadad;
-  --color-border: #bbbbbb;
-  --color-menu-bg: #b7d1f3;
+  --color-primary: #2b5876;
+  --color-primary-dark: #1f4259;
   --color-on-primary: #ffffff;
-  --color-bg: #ffffff;
-  --color-primary-dark: #3a6399;
+  --color-text: #1c2530;
+  --color-text-muted: #64707d;
+  --color-border: #cdd6de;
+  --color-menu-bg: #e4eef4;
+  --color-bg: #f7fafc;
+  --color-surface: #ffffff;
 
-  --font-main: "Rubik", sans-serif;
+  --font-main: "Inter", sans-serif;
+  --font-heading: "Source Serif 4", Georgia, serif;
+  --font-code: ui-monospace, Menlo, Consolas, monospace;
+
+  --radius: 0.5rem;
+  --radius-large: 1rem;
+  --shadow: 0 1px 2px rgb(28 37 48 / 6%), 0 8px 24px rgb(28 37 48 / 8%);
+  --shadow-raised: 0 2px 4px rgb(28 37 48 / 8%), 0 16px 40px rgb(28 37 48 / 14%);
 }
 
+/* ==========================================================================
+   Page layout
+   ========================================================================== */
 body {
   font-family: var(--font-main);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  /* A soft icy glow at the top of every page */
+  background:
+    radial-gradient(ellipse 80% 40rem at 50% 0, var(--color-menu-bg), transparent),
+    var(--color-bg);
+  line-height: 1.6;
+  accent-color: var(--color-primary);
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
 }
 
+main {
+  flex-grow: 1;
+  max-width: 43rem;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-block: 3rem;
+}
+
+/* Wider pages, e.g. the gallery */
+.main-wide {
+  max-width: 75rem;
+}
+
+/* Keep text lines readable even on wide pages */
+.main-wide p {
+  max-width: 40rem;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Header and navigation
+   ========================================================================== */
+/* A light header that stays at the top while scrolling */
 header {
-  background-color: var(--color-primary);
-  min-height: 6.25rem;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 5;
+  background-color: var(--color-surface);
+  border-block-end: 1px solid var(--color-border);
+  min-height: 4.5rem;
   padding-inline: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-main {
-  flex-grow: 1;
-  max-width: 41rem;
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-  padding-block: 2rem;
-}
-
 .site-title {
-  color: var(--color-on-primary);
-  font-size: 2rem;
-  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
 .nav-list {
   display: flex;
-  gap: 1.25rem;
+  gap: 2rem;
   list-style: none;
   padding: 0;
 }
 
 .nav-list a {
-  color: var(--color-on-primary);
-  font-weight: 700;
+  position: relative;
+  color: var(--color-text);
+  font-weight: 500;
   text-decoration: none;
+}
+
+/* An underline that grows from the left on hover */
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -0.25rem;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.nav-list a:hover::after,
+.nav-list a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav-list a[aria-current="page"] {
+  color: var(--color-primary);
 }
 
 .menu-open-button,
@@ -68,74 +134,441 @@ main {
   cursor: pointer;
 }
 
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 .site-footer {
   color: var(--color-text-muted);
+  font-size: 0.875rem;
   text-align: center;
   padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  border-block-start: 1px solid var(--color-border);
+}
+
+.site-footer a {
+  color: inherit;
+}
+
+/* ==========================================================================
+   Content typography
+   ========================================================================== */
+main h1,
+main h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  margin-block-end: 1rem;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  margin-block: 2.5rem 0.75rem;
+}
+
+main h3,
+main h4,
+main h5,
+main h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-block: 1.5rem 0.5rem;
+}
+
+main p,
+main ul,
+main ol,
+main dl,
+main blockquote,
+main pre,
+main table,
+main figure {
+  margin-block-end: 1rem;
+}
+
+main ul,
+main ol {
+  padding-inline-start: 1.5rem;
 }
 
 main a {
   color: var(--color-primary);
+  text-underline-offset: 0.2em;
 }
 
-main p {
-  margin-block-end: 1rem;
+main a:hover {
+  color: var(--color-primary-dark);
 }
 
-h1 {
-  font-size: 2.25rem;
-  font-weight: 400;
-  margin-block-end: 0.5rem;
+/* A short introduction paragraph, slightly larger than body text */
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
-.hello-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  max-width: 13.5rem;
-  margin-block-start: 3rem;
+/* A small label above a heading */
+.eyebrow {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.text-input {
-  border: 2px solid var(--color-border);
-  border-radius: 0.5rem;
-  padding: 0.375rem 0.75rem;
-}
-
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 .button {
+  display: inline-block;
   background-color: var(--color-primary);
   color: var(--color-on-primary);
-  font-weight: 700;
-  border: none;
-  border-radius: 0.5rem;
-  padding-block: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: 0.625rem 1.25rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .button:hover {
   background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-on-primary);
 }
 
-.text-input:focus-visible,
+/* Outlined variant for less important actions */
+.button-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
 .button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Mobile */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 1.5rem;
+}
+
+/* ==========================================================================
+   Home page
+   ========================================================================== */
+/* Text on one side, photo on the other */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  padding-block: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.profile-photo {
+  width: 18rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--color-surface);
+  box-shadow: var(--shadow-raised);
+  flex-shrink: 0;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin-block-start: 2rem;
+}
+
+.contact-links span {
+  color: var(--color-text-muted);
+  margin-inline-end: 0.375rem;
+}
+
+/* ==========================================================================
+   Cards (hobbies on the About page)
+   ========================================================================== */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+/* Each card starts at 16rem wide and grows to share the row equally */
+.card {
+  flex: 1 1 16rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+
+.card-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+main .card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  margin-block: 1rem 0.5rem;
+}
+
+/* Push the card's link or button to the bottom, so cards line up */
+.card-action {
+  margin-block-start: auto;
+  padding-block-start: 0.5rem;
+}
+
+main .card p:last-child {
+  margin-block-end: 0;
+}
+
+/* ==========================================================================
+   Iceland gallery
+   ========================================================================== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin-block-start: 2rem;
+}
+
+/* 3 columns: each item is a third of the row, minus its share of the 2 gaps */
+.gallery-item {
+  flex: 0 0 calc((100% - 3rem) / 3);
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+/* The frame clips the photo, so it can zoom without growing */
+.gallery-frame {
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+}
+
+.gallery img {
+  width: 100%;
+  /* A mild portrait shape: most photos are vertical, a few are landscape */
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery figcaption {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-block-start: 0.5rem;
+}
+
+/* ==========================================================================
+   Other HTML elements (used on the style guide page)
+   ========================================================================== */
+main blockquote {
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-inline-start: 4px solid var(--color-border);
+  padding-inline-start: 1rem;
+}
+
+main code,
+main kbd,
+main samp,
+main pre {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+}
+
+main pre {
+  background-color: var(--color-menu-bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+main hr {
+  border: none;
+  border-block-start: 1px solid var(--color-border);
+  margin-block: 2rem;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main th,
+main td {
+  text-align: start;
+  border-block-end: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem;
+}
+
+main th {
+  font-weight: 600;
+}
+
+main dt {
+  font-weight: 600;
+}
+
+main dd {
+  margin-inline-start: 1.5rem;
+}
+
+main fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-block-end: 1.5rem;
+  /* Browsers stop fieldsets from shrinking below their content; allow it */
+  min-inline-size: 0;
+}
+
+main legend {
+  font-weight: 600;
+  padding-inline: 0.25rem;
+}
+
+main input,
+main select,
+main textarea,
+main audio {
+  max-width: 100%;
+}
+
+main input[type="text"],
+main input[type="email"],
+main input[type="password"],
+main input[type="number"],
+main input[type="search"],
+main input[type="tel"],
+main input[type="url"],
+main select,
+main textarea {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.5rem;
+}
+
+main input:focus-visible,
+main select:focus-visible,
+main textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+main button,
+main input[type="submit"],
+main input[type="button"],
+main input[type="reset"] {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  cursor: pointer;
+}
+
+main button:disabled,
+main input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Page load animation
+   ========================================================================== */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+/* Only for visitors who haven't asked their system to reduce motion */
+@media (prefers-reduced-motion: no-preference) {
+  main {
+    animation: fade-up 0.6s ease-out;
+  }
+}
+
+/* ==========================================================================
+   Tablet
+   ========================================================================== */
+@media (max-width: 56rem) {
+  .gallery-item {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+
+  /* Photo above the text (it comes after the text in the HTML) */
+  .hero {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .profile-photo {
+    width: 12rem;
+  }
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
 @media (max-width: 40rem) {
+  header {
+    padding-inline: 1.5rem;
+  }
+
   .site-title {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
   }
 
   .menu-open-button {
     display: block;
-  }
-
-  /* The icon file is dark grey; turn it white */
-  .menu-open-button img {
-    filter: brightness(0) invert(1);
   }
 
   /* The nav becomes a full-screen overlay, closed by default */
@@ -157,11 +590,12 @@ h1 {
     visibility: visible;
   }
 
+  /* Same spot as the hamburger: vertically centered in the 4.5rem header */
   .menu-close-button {
     display: block;
     position: absolute;
-    inset-block-start: 2.5rem;
-    inset-inline-end: 2rem;
+    inset-block-start: 1.375rem;
+    inset-inline-end: 1.5rem;
   }
 
   .nav-list {
@@ -172,10 +606,38 @@ h1 {
 
   .nav-list a {
     color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  main {
+    padding-block: 2rem;
+  }
+
+  main h1 {
     font-size: 2rem;
   }
 
-  .hello-form {
-    max-width: none;
+  .hero {
+    padding-block: 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .profile-photo {
+    width: 9rem;
+  }
+
+  .gallery-item {
+    flex-basis: 100%;
+  }
+
+  /* Wide tables scroll sideways instead of widening the page */
+  main table {
+    display: block;
+    overflow-x: auto;
   }
 }

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iceland · Amir Ben Avi</title>
+    <meta name="description" content="Photos from Amir Ben Avi's trip to Iceland." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet" />
+    <link href="/styles/reset.css" rel="stylesheet" />
+    <link href="/styles/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="site-title">Amir</a>
+      <nav class="site-nav" id="site-nav">
+        <button type="button" class="menu-close-button" aria-label="Close menu">
+          <img src="/icons/close.svg" alt="" />
+        </button>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="iceland.html" aria-current="page">Iceland</a></li>
+        </ul>
+      </nav>
+      <button
+        type="button"
+        class="menu-open-button"
+        aria-label="Open menu"
+        aria-controls="site-nav"
+        aria-expanded="false"
+      >
+        <img src="/icons/menu.svg" alt="" />
+      </button>
+    </header>
+    <main class="main-wide">
+      <p class="eyebrow">Photography</p>
+      <h1>Iceland</h1>
+      <p class="lead">
+        In late summer 2026 I travelled around Iceland: waterfalls, black-sand beaches,
+        glaciers and a lot of wind. Here are some of my favorite photos from the trip.
+      </p>
+
+      <!-- The first row is visible right away, so only the photos below it load lazily -->
+      <ul class="gallery">
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/kirkjufell.jpg" alt="Kirkjufell mountain rising behind a pair of waterfalls under a blue sky" />
+            </div>
+            <figcaption>Kirkjufell, Snæfellsnes</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/northern-lights.jpg" alt="Green northern lights swirling over a dark landscape at dusk" />
+            </div>
+            <figcaption>Northern lights</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/jokulsarlon.jpg" alt="A blue iceberg floating in the Jökulsárlón glacier lagoon" />
+            </div>
+            <figcaption>Jökulsárlón glacier lagoon</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/diamond-beach.jpg" alt="Chunks of ice scattered on the black sand of Diamond Beach" loading="lazy" />
+            </div>
+            <figcaption>Diamond Beach</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/bruarfoss.jpg" alt="Bright turquoise water rushing over the rocks at Brúarfoss" loading="lazy" />
+            </div>
+            <figcaption>Brúarfoss</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/fjadrargljufur.jpg" alt="A river winding through the mossy green walls of Fjaðrárgljúfur canyon" loading="lazy" />
+            </div>
+            <figcaption>Fjaðrárgljúfur canyon</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/dyrholaey.jpg" alt="The Dyrhólaey rock arch standing in the sea" loading="lazy" />
+            </div>
+            <figcaption>Dyrhólaey</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/kerlingarfjoll.jpg" alt="Steam rising from colorful geothermal hills in Kerlingarfjöll, with snow on the slopes" loading="lazy" />
+            </div>
+            <figcaption>Kerlingarfjöll</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/reynisfjara.jpg" alt="Amir on the black-sand beach of Reynisfjara, with sea stacks in the background" loading="lazy" />
+            </div>
+            <figcaption>Me at Reynisfjara</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/landmannalaugar.jpg" alt="A calm lake reflecting colorful mountains at Landmannalaugar, with white cotton grass in front" loading="lazy" />
+            </div>
+            <figcaption>Landmannalaugar</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/solheimajokull.jpg" alt="The cracked, ash-streaked ice of the Sólheimajökull glacier" loading="lazy" />
+            </div>
+            <figcaption>Sólheimajökull glacier</figcaption>
+          </figure>
+        </li>
+        <li class="gallery-item">
+          <figure>
+            <div class="gallery-frame">
+              <img src="/images/iceland/icelandic-sheep.jpg" alt="An Icelandic sheep standing in a golden field" loading="lazy" />
+            </div>
+            <figcaption>Icelandic sheep near Skógar</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </main>
+    <footer class="site-footer">
+      <p>
+        © 2026 Amir Ben Avi · <a href="elements.html">Style guide</a> ·
+        Built for <a href="https://github.com/product-jam-2027/course/">Product Jam</a>
+      </p>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
